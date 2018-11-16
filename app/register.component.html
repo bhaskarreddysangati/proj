@@ -1,0 +1,16 @@
+<menu></menu>
+<form novalidate #userForm = "ngForm" align="center">
+    <fieldset>
+      <legend>Personal information:</legend>
+      First name:<br>
+      <input type="text" name="firstname" #firstname = "ngModel" [(ngModel)]="user.fname"><br>
+      Last name:<br>
+      <input type="text" name="lastname" #lastname = "ngModel" [(ngModel)]="user.lname"><br><br>
+      Email:<br>
+      <input type="text" name="email" #email="ngModel" [(ngModel)]="user.email"><br><br>
+      Password:<br>
+      <input type="password" name="pwd" #password = "ngModel" [(ngModel)]="user.pwd"><br><br>
+
+      <input type="submit" value="Submit" (click)="register()">
+    </fieldset>
+  </form>
