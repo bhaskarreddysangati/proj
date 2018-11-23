@@ -1,0 +1,83 @@
+<div align="right"><button (click)="logout()">Logout</button></div>
+
+
+<div class="container">
+
+        <div class="row has-title-bar has-no-tabs">
+                <div class="span10 offset2">
+                        <div class="row">
+                                <div class="span10">
+
+                                        <style>
+                                                .home-component{
+                                               
+                                                width: 100px;
+                                                
+                                            }
+                                            
+                                            #customers td, #customers th 
+                                            {
+                                            
+                                                border: 1px solid #ff2255;
+                                                padding: 8px;
+                                            }
+                                            
+                                            </style>
+                                            
+                                            <table id="customers" style="margin-left:160px;">
+                                                    
+                                                <thead>
+                                                    <tr>
+                                                    <th class="home-component">Name</th>
+                                                    <th class="home-component">Username</th>
+                                                    <th class="home-component">password</th>
+                                                    <th class="home-component">Relation</th>
+                                                    <th class="home-component">Gender</th>
+                                                    <th class="home-component">Language</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                            <tr *ngFor="let user of users">
+                                            <td class="home-component">{{user.name}} </td>
+                                            <td class="home-component">{{user.username}} </td>
+                                            <td class="home-component">{{user.password}} </td> 
+                                            <td class="home-component">{{user.relation}} </td>
+                                            <td class="home-component">{{user.gender}} </td>
+                                            
+                                            <td>
+                                                <button [routerLink]="['/editUser',user._id]" >Edit</button>
+                                                 <button (click)="delete(user._id)">Delete</button>
+                                            </td>
+                                            </tr>
+                                                </tbody>
+                                            </table>
+
+
+<div align="center">
+        <ul class="pagination">
+                <li [ngClass]="{'disabled':firstDisabled()}">
+                        <a (click)="first()">First |
+                                < </a>
+                </li>
+                <li [ngClass]="{'disabled':prevDisabled()}">
+                        <a (click)="previous()">Previous
+                                << </a>
+                </li>
+                <li *ngFor="let i of pageNums2Disp" [ngClass]="{'disabled': currDisabled(i)}">
+                        <a (click)="getPage(i)">{{i}}</a>
+                </li>
+
+                <li [ngClass]="{'disabled': nextDisabled()}">
+                        <a (click)="next()">Next >> </a>
+                </li>
+                <li [ngClass]="{'disabled':lastDisabled()}">
+                        <a (click)="last()">Last >| </a>
+                </li>
+        </ul>
+        <p align="center">Showing page {{currentPageNum}} of {{maxPageNum}}</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

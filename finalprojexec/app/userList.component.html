@@ -1,0 +1,19 @@
+<button (click)="logout()">Logout</button>
+<table>
+    <tr>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>Actions</th>
+    </tr>
+    <tr *ngFor="let user of users">
+        <td>{{user.name | uppercase}}</td>
+        <td>{{user.username}}</td>
+        <td>{{user.relation}}</td>
+        <td>
+            <button [routerLink]="['/editUser',user._id]">Edit</button>
+            <button (click)="delete(user._id)">Delete</button>
+
+        </td>
+    </tr>
+    
+  </table>
